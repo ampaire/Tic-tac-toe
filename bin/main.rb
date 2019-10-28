@@ -19,7 +19,7 @@ class TicTacToe
   end
 
   def draw_board
-    # This will probably be done on the actual game class later in the project
+    # The board, it will later be done through the logic for the game
     puts ' ' + @board[0].to_s + ' | ' + @board[1].to_s + ' | ' + @board[2].to_s + ' '
     puts '-----------'
     puts ' ' + @board[3].to_s + ' | ' + @board[4].to_s + ' | ' + @board[5].to_s + ' '
