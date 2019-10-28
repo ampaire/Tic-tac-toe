@@ -29,7 +29,7 @@ class TicTacToe
 end
 
 class Game
-  # In here will be the actual game logic and methods
+  # Game logic shall appear here
 end
 
 #########
