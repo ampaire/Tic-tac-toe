@@ -8,7 +8,7 @@ class Player
   end
 end
 
-class TicTacToe
+class DisplayInterface
   attr_accessor :board
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -31,10 +31,10 @@ class TicTacToe
     puts '.................................................'
   end
 
-  def display_welcome
-    puts '*************************************************'
-    puts '*                  TIC-TAC-TOE                  *'
-    puts '*************************************************'
+  def draw_welcome
+    puts '************************************************************'
+    puts '*                        TIC-TAC-TOE                       *'
+    puts '************************************************************'
     puts "      by the Awesome Duo: Effie & David\n\n"
     puts '                                                 '
     puts '-------------GAME INSTRUCTIONS---------------'
@@ -52,13 +52,13 @@ class TicTacToe
   end
 end
 
-class Game
-  # Game logic shall appear here
+class TicTacToe
+
 end
 
 #########
-game = TicTacToe.new
-game.display_welcome
+game = DisplayInterface.new
+game.draw_welcome
 game.draw_board
 game.draw_line
 game.take_place(2, 'X')
