@@ -1,4 +1,4 @@
-!/usr/bin/ruby
+#!/usr/bin/ruby
 
 class Player
   attr_accessor :name, :taken
@@ -51,7 +51,6 @@ class DisplayInterface
     puts '************************************************************'
   end
 end
-
 class TicTacToe
 
 end
