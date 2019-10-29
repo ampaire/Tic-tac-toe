@@ -51,5 +51,10 @@ end
 #########
 game = DisplayInterface.new
 game.draw_welcome
+game.draw_board
+game.take_place(3, 'X')
+actual_board = game.board
+game.draw_board
+p actual_board
 player1_name = game.player_one
 p player1_name
