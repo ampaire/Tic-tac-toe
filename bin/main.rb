@@ -15,7 +15,7 @@ class TicTacToe
   end
 
   def take_place(inpt, play)
-    @board[inpt - 1] = play ? 'O' : 'X'
+    @board[inpt - 1] = play if play == 'O' || play == 'X'
   end
 
   def draw_board
@@ -26,6 +26,10 @@ class TicTacToe
     puts '-----------'
     puts ' ' + @board[6].to_s + ' | ' + @board[7].to_s + ' | ' + @board[8].to_s + ' '
   end
+
+  def draw_line
+    puts '.................................................'
+  end
 end
 
 class Game
@@ -35,3 +39,13 @@ end
 #########
 game = TicTacToe.new
 game.draw_board
+game.draw_line
+game.take_place(2, 'X')
+game.draw_board
+game.draw_line
+game.take_place(5, 'O')
+game.draw_board
+game.draw_line
+game.take_place(4, 'a')
+game.draw_board
+game.draw_line
