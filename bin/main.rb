@@ -37,8 +37,18 @@ class TicTacToe
     puts '*************************************************'
     puts "      by the Awesome Duo: Effie & David\n\n"
     puts '                                                 '
-    puts 'Steps:'
-    puts '1.- Enter your name: '
+    puts '-------------GAME INSTRUCTIONS---------------'
+    puts 'The first player takes X and the second player takes O'
+    puts 'Choose numbers from 1 to 9 to select desired cell'
+    puts 'No duplicate numbers are allowed'
+    puts '--------------------------------'
+    puts 'Player 1: What is your name?:'
+    player_one = gets.chomp
+    puts 'Player 2: What is your name?:'
+    player_two = gets.chomp
+    puts '************************************************************'
+    puts "Player one X is #{player_one} and Player two O #{player_two}"
+    puts '************************************************************'
   end
 end
 
