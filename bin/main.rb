@@ -1,16 +1,31 @@
 #!/usr/bin/ruby
 
-require_relative '../lib/game_logic.rb' 
+#require_relative '/lib/game_logic.rb'
 
 class DisplayInterface
   attr_reader :board, :player_one, :player_two
 
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    @total_moves = 9
   end
 
   def take_place(inpt, play)
     @board[inpt - 1] = play if play == 'O' || play == 'X'
+    @total_moves -= 1
+  end
+
+  def get_position
+    puts 'Wich position do you want to take?'
+    @position = gets.chomp
+  end
+
+  def get_current_player
+    if @total_moves%2 == 0
+      @current_player = player_two
+    else
+      @current_player = player_one
+    end
   end
 
   def draw_board
@@ -23,7 +38,7 @@ class DisplayInterface
   end
 
   def draw_line
-    puts '.................................................'
+    puts '############################################################'
   end
 
   def draw_welcome
@@ -46,15 +61,57 @@ class DisplayInterface
     puts '************************************************************'
     puts 'Game Start!'
   end
+
+  def draw_player_turn(player)
+    puts '************************************************************'
+    puts "*                  #{player} its your turn!                *"
+    puts '************************************************************'
+  end
+
+  def draw_available_moves(array)
+    puts '************************************************************'
+    puts "*       This are the available moves  #{array}             *"
+    puts '************************************************************'
+  end
+
+  def invalid_move
+    puts '************************************************************'
+    puts '*                This move is not valid!                   *'
+    puts '************************************************************'
+  end
+
+  def winning_move
+    puts '************************************************************'
+    puts '*                This is a winning move!                   *'
+    puts '************************************************************'
+  end
+
+  def draw_move
+    puts '************************************************************'
+    puts '*                    This is a draw!                       *'
+    puts '************************************************************'
+  end
 end
 
 #########
+counter = 0
+# initial instructions for player
 game = DisplayInterface.new
 game.draw_welcome
-game.draw_board
-game.take_place(3, 'X')
-actual_board = game.board
-game.draw_board
-p actual_board
-player1_name = game.player_one
-p player1_name
+player_one = game.player_one
+player_two = game.player_two
+while counter < 9
+  # loop for each move
+  if game.get_current_player == player_one
+    game.draw_player_turn(player_one)
+    position = game.get_position.to_i
+    game.take_place(position, 'X')
+  else 
+    game.draw_player_turn(player_two)
+    position = game.get_position.to_i
+    game.take_place(position, 'O')
+  end
+  game.draw_board
+  game.draw_line
+  counter += 1
+end
