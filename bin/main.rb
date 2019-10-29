@@ -2,16 +2,9 @@
 
 require_relative '../lib/game_logic.rb' 
 
-class Player
-  attr_reader :name, :taken
-  def initialize(name = 'Player')
-    @name = name
-    @taken = []
-  end
-end
-
 class DisplayInterface
-  attr_accessor :board
+  attr_reader :board, :player_one, :player_two
+
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   end
@@ -45,9 +38,9 @@ class DisplayInterface
     puts 'No duplicate numbers are allowed'
     puts '--------------------------------'
     puts 'Player 1: What is your name?:'
-    player_one = gets.chomp
+    @player_one = gets.chomp
     puts 'Player 2: What is your name?:'
-    player_two = gets.chomp
+    @player_two = gets.chomp
     puts '************************************************************'
     puts "Player one X is #{player_one} and Player two O #{player_two}"
     puts '************************************************************'
@@ -55,10 +48,8 @@ class DisplayInterface
   end
 end
 
-class TicTacToe
-
-end
-
 #########
 game = DisplayInterface.new
 game.draw_welcome
+player1_name = game.player_one
+p player1_name
