@@ -7,10 +7,25 @@ class DisplayInterface
 
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    @total_moves = 9
   end
 
   def take_place(inpt, play)
     @board[inpt - 1] = play if play == 'O' || play == 'X'
+    @total_moves -= 1
+  end
+
+  def get_position
+    puts 'Wich position do you want to take?'
+    @position = gets.chomp
+  end
+
+  def get_current_player
+    if @total_moves%2 == 0
+      @current_player = player_two
+    else
+      @current_player = player_one
+    end
   end
 
   def draw_board
@@ -49,7 +64,7 @@ class DisplayInterface
 
   def draw_player_turn(player)
     puts '************************************************************'
-    puts "*              Player #{player} its your turn!             *"
+    puts "*                  #{player} its your turn!                *"
     puts '************************************************************'
   end
 
@@ -79,11 +94,25 @@ class DisplayInterface
 end
 
 #########
+counter = 0
+# initial instructions for player
 game = DisplayInterface.new
 game.draw_welcome
-game.draw_line
-myarray = [1, 5, 6, 7]
-game.draw_available_moves(myarray)
-game.invalid_move
-game.winning_move
-game.draw_move
+player_one = game.player_one
+player_two = game.player_two
+while counter < 9
+  # loop for each move
+  if game.get_current_player == player_one
+    game.draw_player_turn(player_one)
+    position = game.get_position.to_i
+    game.take_place(position, 'X')
+  else 
+    game.draw_player_turn(player_two)
+    position = game.get_position.to_i
+    game.take_place(position, 'O')
+  end
+  game.draw_board
+  game.draw_line
+  counter += 1
+end
+
