@@ -1,7 +1,9 @@
 #!/usr/bin/ruby
 
+require_relative '../lib/game_logic.rb' 
+
 class Player
-  attr_accessor :name, :taken
+  attr_reader :name, :taken
   def initialize(name = 'Player')
     @name = name
     @taken = []
@@ -49,8 +51,10 @@ class DisplayInterface
     puts '************************************************************'
     puts "Player one X is #{player_one} and Player two O #{player_two}"
     puts '************************************************************'
+    puts 'Game Start!'
   end
 end
+
 class TicTacToe
 
 end
@@ -58,14 +62,3 @@ end
 #########
 game = DisplayInterface.new
 game.draw_welcome
-game.draw_board
-game.draw_line
-game.take_place(2, 'X')
-game.draw_board
-game.draw_line
-game.take_place(5, 'O')
-game.draw_board
-game.draw_line
-game.take_place(4, 'a')
-game.draw_board
-game.draw_line
