@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-#require_relative 'lib/game_logic.rb' 
+#require_relative '/lib/game_logic.rb'
 
 class DisplayInterface
   attr_reader :board, :player_one, :player_two
@@ -52,11 +52,38 @@ class DisplayInterface
     puts "*              Player #{player} its your turn!             *"
     puts '************************************************************'
   end
+
+  def draw_available_moves(array)
+    puts '************************************************************'
+    puts "*       This are the available moves  #{array}             *"
+    puts '************************************************************'
+  end
+
+  def invalid_move
+    puts '************************************************************'
+    puts '*                This move is not valid!                   *'
+    puts '************************************************************'
+  end
+
+  def winning_move
+    puts '************************************************************'
+    puts '*                This is a winning move!                   *'
+    puts '************************************************************'
+  end
+
+  def draw_move
+    puts '************************************************************'
+    puts '*                    This is a draw!                       *'
+    puts '************************************************************'
+  end
 end
 
 #########
 game = DisplayInterface.new
 game.draw_welcome
 game.draw_line
-player_one = game.player_one
-game.draw_player_turn(player_one)
+myarray = [1, 5, 6, 7]
+game.draw_available_moves(myarray)
+game.invalid_move
+game.winning_move
+game.draw_move
