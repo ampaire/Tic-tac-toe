@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-require_relative '../lib/game_logic.rb' 
+#require_relative 'lib/game_logic.rb' 
 
 class DisplayInterface
   attr_reader :board, :player_one, :player_two
@@ -23,7 +23,7 @@ class DisplayInterface
   end
 
   def draw_line
-    puts '.................................................'
+    puts '############################################################'
   end
 
   def draw_welcome
@@ -46,15 +46,17 @@ class DisplayInterface
     puts '************************************************************'
     puts 'Game Start!'
   end
+
+  def draw_player_turn(player)
+    puts '************************************************************'
+    puts "*              Player #{player} its your turn!             *"
+    puts '************************************************************'
+  end
 end
 
 #########
 game = DisplayInterface.new
 game.draw_welcome
-game.draw_board
-game.take_place(3, 'X')
-actual_board = game.board
-game.draw_board
-p actual_board
-player1_name = game.player_one
-p player1_name
+game.draw_line
+player_one = game.player_one
+game.draw_player_turn(player_one)
