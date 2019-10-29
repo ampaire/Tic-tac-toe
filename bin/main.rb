@@ -116,3 +116,8 @@ while counter < 9
   counter += 1
 end
 
+left_positions = [2, 4, 5, 8]
+game.draw_available_moves(left_positions)
+game.invalid_move
+game.winning_move
+game.draw_move
