@@ -30,6 +30,16 @@ class TicTacToe
   def draw_line
     puts '.................................................'
   end
+
+  def display_welcome
+    puts '*************************************************'
+    puts '*                  TIC-TAC-TOE                  *'
+    puts '*************************************************'
+    puts "      by the Awesome Duo: Effie & David\n\n"
+    puts '                                                 '
+    puts 'Steps:'
+    puts '1.- Enter your name: '
+  end
 end
 
 class Game
@@ -38,6 +48,7 @@ end
 
 #########
 game = TicTacToe.new
+game.display_welcome
 game.draw_board
 game.draw_line
 game.take_place(2, 'X')
