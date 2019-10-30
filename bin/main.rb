@@ -104,7 +104,7 @@ class DisplayInterface < GameLogic
       else
         puts "CONGRATULATIONS #{player_two} You won this round"
       end
-    elsif @game.draw
+    elsif @game.draw?
       puts "Oh! Its a draw"
     end
   end
@@ -114,7 +114,6 @@ game = DisplayInterface.new
 game.draw_welcome
 #game.draw_player_turn()
 game.play
-game.end
 
 
 # #########

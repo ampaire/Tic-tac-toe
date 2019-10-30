@@ -29,9 +29,8 @@ class GameLogic
         @board[index] == :X || @board[index] == :O
     end
 
-    def take_place(inpt, play)
-        @board[inpt - 1] = play if play == 'O' || play == 'X'
-        count_turns -= 1
+    def take_place(inpt)
+        inpt.to_i - 1
     end
 
     def count_turns
@@ -65,7 +64,7 @@ class GameLogic
     end
 
     def winner?
-        if @board[won?.first] == X
+        if @board[won.first] == :X
             :X
         else
             :O
