@@ -3,9 +3,8 @@
 # frozen_string_literal: true
 
 require_relative '../lib/game_logic.rb'
-require_relative '../lib/players.rb'
 
-class DisplayInterface
+class DisplayInterface < GameLogic
   
   def initialize
     @game = GameLogic.new(@players)
@@ -90,11 +89,11 @@ counter = 0
 # initial instructions for player
 game = DisplayInterface.new
 game.draw_welcome
-player_one = game.player_one
-player_two = game.player_two
+PLAYER_1 = true
+PLAYER_2 = false
 while counter < 9
   # loop for each move
-  if game.get_current_player == player_one
+  if game.get_current_player == PLAYER_1
     game.draw_player_turn(player_one)
     position = game.get_position.to_i
     game.take_place(position, 'X')
