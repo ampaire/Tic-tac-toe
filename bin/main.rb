@@ -86,7 +86,7 @@ class DisplayInterface < GameLogic
   def move
     position
     point = gets.strip
-    point= @game.board.take_place(point)
+    point= @game.take_place(point)
     if @game.valid_move?(point)
       @game.player_index (point, @game.get_current_player)
       draw_board
