@@ -1,13 +1,15 @@
 #!/usr/bin/ruby
 
+# frozen_string_literal: true
+
 require_relative '../lib/game_logic.rb'
+require_relative '../lib/players.rb'
 
 class DisplayInterface
   
   def initialize
-    @game =GameLogic.new(@players)
+    @game = GameLogic.new(@players)
   end
-
   def get_position
     puts 'Which position do you want to take?'
     @position = gets.chomp
@@ -16,12 +18,15 @@ class DisplayInterface
 
 
   def draw_board
-    # The board, it will later be done through the logic for the game
-    puts ' ' + @board[0].to_s + ' | ' + @board[1].to_s + ' | ' + @board[2].to_s + ' '
-    puts '-----------'
-    puts ' ' + @board[3].to_s + ' | ' + @board[4].to_s + ' | ' + @board[5].to_s + ' '
-    puts '-----------'
-    puts ' ' + @board[6].to_s + ' | ' + @board[7].to_s + ' | ' + @board[8].to_s + ' '
+    puts " #{@game.board[0]} | #{@game.board[1]} | #{@game.board[2]} "
+
+    puts ' ---------- '
+
+    puts " #{@game.board[3]} | #{@game.board[4]} | #{@game.board[5]} "
+
+    puts ' ---------- '
+
+    puts " #{@game.board[6]} | #{@game.board[7]} | #{@game.board[8]} "
   end
 
   def draw_line
@@ -44,14 +49,14 @@ class DisplayInterface
     puts 'Player 2: What is your name?:'
     @player_two = gets.chomp
     puts '************************************************************'
-    puts "Player one X is #{player_one} and Player two O #{player_two}"
+    puts "Player one X is #{@player_one} and Player two O #{@player_two}"
     puts '************************************************************'
     puts 'Game Start!'
   end
 
   def draw_player_turn(player)
     puts '************************************************************'
-    puts "*                  #{player} its your turn!                *"
+    puts "*                  #{@player} its your turn!                *"
     puts '************************************************************'
   end
 
