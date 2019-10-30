@@ -66,9 +66,10 @@ class DisplayInterface < GameLogic
     end
   end
 
-  def draw_available_moves(array)
+  def draw_available_moves
+    my_available_moves = @game.available_moves()
     puts '************************************************************'
-    puts "*       This are the available moves  #{array}             *"
+    puts "*       This are the available moves  #{my_available_moves}             *"
     puts '************************************************************'
   end
 
@@ -78,6 +79,7 @@ class DisplayInterface < GameLogic
     if @game.valid_move?(point)
       @game.player_index(point,@game.get_current_player)
       draw_player_turn
+      draw_available_moves
       draw_board
     else
       puts "Number choosen has already been played"
@@ -109,5 +111,6 @@ end
 game = DisplayInterface.new
 game.draw_welcome
 game.draw_player_turn
+game.draw_available_moves
 game.draw_board
 game.play
