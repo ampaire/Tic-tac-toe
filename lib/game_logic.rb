@@ -1,4 +1,6 @@
-require_relative '../lib/players.rb' 
+# frozen_string_literal: true
+
+require_relative './players.rb'
 
 class GameLogic
     attr_reader :board, :player_one, :player_two, :X , :O
@@ -30,15 +32,23 @@ class GameLogic
     def count_turns
         @board.select{ |e| e == :X || e == :O}.size
     end
-    
+
 
 
     def valid_move?(position)
         position.between?(0,8) && !board_full?(position)
     end
 
-    def game_draw
-        !won && board_full?
+    def full?
+        turn_count == 9
+    end
+    
+    def draw?
+        !won? && full?
+    end
+    
+    def over?
+        won? || full? || draw?
     end
 
     def get_current_player
