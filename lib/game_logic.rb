@@ -14,10 +14,11 @@ class GameLogic
     SURE_WINS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6] , [1,4,7], [2,5,8], [0,4,8], [2,4,6]].freeze
 
     def won
-        SURE_WINS.detect.do |combo|
-        @board [combo[0]] == @board [combo[1]] &&
-        @board [combo[1]] == @board [combo[2]] &&
-        board_full?(combo[0])
+        SURE_WINS.detect do |combo|
+            @board [combo[0]] == @board [combo[1]] &&
+            @board [combo[1]] == @board [combo[2]] &&
+            board_full?(combo[0])
+        end
     end
 
     def player_index(index, input = :X)
@@ -43,15 +44,15 @@ class GameLogic
     end
 
     def full?
-        turn_count == 9
+        count_turns == 9
     end
     
     def draw?
-        !won? && full?
+        !won && full?
     end
     
     def over?
-        won? || full? || draw?
+        won || full? || draw?
     end
 
     def get_current_player
@@ -72,7 +73,7 @@ class GameLogic
     end
 
     def game_over
-        won? || board_full?||game_draw
+        won || board_full?||game_draw
     end
 
 end

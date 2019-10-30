@@ -84,7 +84,6 @@ class DisplayInterface < GameLogic
   end
 
   def move
-    # position
     point = gets.strip
     point= @game.take_place(point)
     if @game.valid_move?(point)
