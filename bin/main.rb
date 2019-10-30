@@ -84,11 +84,11 @@ class DisplayInterface < GameLogic
   end
 
   def move
-    position
+    # position
     point = gets.strip
     point= @game.take_place(point)
     if @game.valid_move?(point)
-      @game.player_index (point, @game.get_current_player)
+      @game.player_index(point,@game.get_current_player)
       draw_board
     else
       puts "Number choosen has already been played"
@@ -113,6 +113,7 @@ end
 
 game = DisplayInterface.new
 game.draw_welcome
+game.draw_player_turn
 game.play
 game.end
 
