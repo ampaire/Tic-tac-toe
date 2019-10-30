@@ -65,24 +65,6 @@ class DisplayInterface < GameLogic
     puts '************************************************************'
   end
 
-  def invalid_move
-    puts '************************************************************'
-    puts '*                This move is not valid!                   *'
-    puts '************************************************************'
-  end
-
-  def winning_move
-    puts '************************************************************'
-    puts '*                This is a winning move!                   *'
-    puts '************************************************************'
-  end
-
-  def draw_move
-    puts '************************************************************'
-    puts '*                    This is a draw!                       *'
-    puts '************************************************************'
-  end
-
   def move
     point = gets.strip
     point= @game.take_place(point)
@@ -100,12 +82,18 @@ class DisplayInterface < GameLogic
     move until @game.over?
     if @game.won
       if @game.winner? == :X
-        puts "CONGRATULATIONS #{player_one} You won this round"
+        puts '************************************************************'
+        puts "*      CONGRATULATIONS #{player_one} You won this round    *"
+        puts '************************************************************'
       else
-        puts "CONGRATULATIONS #{player_two} You won this round"
+        puts '************************************************************'
+        puts "*      CONGRATULATIONS #{player_two} You won this round    *"
+        puts '************************************************************'
       end
     elsif @game.draw?
-      puts "Oh! Its a draw"
+      puts '************************************************************'
+      puts "*                       Oh! Its a draw                     *"
+      puts '************************************************************'
     end
   end
 end
