@@ -3,30 +3,17 @@
 require_relative '../lib/game_logic.rb'
 
 class DisplayInterface
-  attr_reader :board, :player_one, :player_two
-
+  
   def initialize
-    @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    @total_moves = 9
-  end
-
-  def take_place(inpt, play)
-    @board[inpt - 1] = play if play == 'O' || play == 'X'
-    @total_moves -= 1
+    @game =GameLogic.new(@players)
   end
 
   def get_position
-    puts 'Wich position do you want to take?'
+    puts 'Which position do you want to take?'
     @position = gets.chomp
   end
 
-  def get_current_player
-    if @total_moves%2 == 0
-      @current_player = player_two
-    else
-      @current_player = player_one
-    end
-  end
+
 
   def draw_board
     # The board, it will later be done through the logic for the game
