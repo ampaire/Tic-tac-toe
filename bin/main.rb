@@ -94,9 +94,27 @@ class DisplayInterface < GameLogic
       puts "Number choosen has already been played"
       puts "You need to enter a valid number between 1-9"
       draw_board
+      move
+    end
+  end
+  def play
+    move until @game.over?
+    if @game.won?
+      if @game.winner? == :X
+        puts "CONGRATULATIONS #{player_one} You won this round"
+      else
+        puts "CONGRATULATIONS #{player_two} You won this round"
+      end
+    elsif @game.draw
+      puts "Oh! Its a draw"
     end
   end
 end
+
+game = DisplayInterface.new
+game.draw_welcome
+game.play
+game.end
 
 
 # #########
