@@ -53,10 +53,17 @@ class DisplayInterface < GameLogic
     puts 'Game Start!'
   end
 
-  def draw_player_turn(player)
-    puts '************************************************************'
-    puts "*                  #{@player} its your turn!                *"
-    puts '************************************************************'
+  def draw_player_turn
+    player = @game.get_current_player
+    if  player == :X
+      puts '************************************************************'
+      puts "*                  #{@player_one} its your turn!                *"
+      puts '************************************************************'
+    else
+      puts '************************************************************'
+      puts "*                  #{@player_two} its your turn!                *"
+      puts '************************************************************'
+    end
   end
 
   def draw_available_moves(array)
@@ -70,6 +77,7 @@ class DisplayInterface < GameLogic
     point= @game.take_place(point)
     if @game.valid_move?(point)
       @game.player_index(point,@game.get_current_player)
+      draw_player_turn
       draw_board
     else
       puts "Number choosen has already been played"
@@ -100,29 +108,6 @@ end
 
 game = DisplayInterface.new
 game.draw_welcome
-#game.draw_player_turn()
+game.draw_player_turn
+game.draw_board
 game.play
-
-
-# #########
-# counter = 0
-# # initial instructions for player
-# game = DisplayInterface.new
-# game.draw_welcome
-# PLAYER_1 = true
-# PLAYER_2 = false
-# while counter < 9
-#   # loop for each move
-#   if game.get_current_player == PLAYER_1
-#     game.draw_player_turn(player_one)
-#     position = game.get_position.to_i
-#     game.take_place(position, 'X')
-#   else 
-#     game.draw_player_turn(player_two)
-#     position = game.get_position.to_i
-#     game.take_place(position, 'O')
-#   end
-#   game.draw_board
-#   game.draw_line
-#   counter += 1
-# end
