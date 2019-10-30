@@ -99,7 +99,7 @@ class DisplayInterface < GameLogic
   end
   def play
     move until @game.over?
-    if @game.won?
+    if @game.won
       if @game.winner? == :X
         puts "CONGRATULATIONS #{player_one} You won this round"
       else
@@ -113,7 +113,7 @@ end
 
 game = DisplayInterface.new
 game.draw_welcome
-game.draw_player_turn
+#game.draw_player_turn()
 game.play
 game.end
 
