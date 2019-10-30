@@ -82,27 +82,42 @@ class DisplayInterface < GameLogic
     puts '*                    This is a draw!                       *'
     puts '************************************************************'
   end
+
+  def move
+    position
+    point = gets.strip
+    point= @game.board.take_place(point)
+    if @game.valid_move?(point)
+      @game.player_index (point, @game.get_current_player)
+      draw_board
+    else
+      puts "Number choosen has already been played"
+      puts "You need to enter a valid number between 1-9"
+      draw_board
+    end
+  end
 end
 
-#########
-counter = 0
-# initial instructions for player
-game = DisplayInterface.new
-game.draw_welcome
-PLAYER_1 = true
-PLAYER_2 = false
-while counter < 9
-  # loop for each move
-  if game.get_current_player == PLAYER_1
-    game.draw_player_turn(player_one)
-    position = game.get_position.to_i
-    game.take_place(position, 'X')
-  else 
-    game.draw_player_turn(player_two)
-    position = game.get_position.to_i
-    game.take_place(position, 'O')
-  end
-  game.draw_board
-  game.draw_line
-  counter += 1
-end
+
+# #########
+# counter = 0
+# # initial instructions for player
+# game = DisplayInterface.new
+# game.draw_welcome
+# PLAYER_1 = true
+# PLAYER_2 = false
+# while counter < 9
+#   # loop for each move
+#   if game.get_current_player == PLAYER_1
+#     game.draw_player_turn(player_one)
+#     position = game.get_position.to_i
+#     game.take_place(position, 'X')
+#   else 
+#     game.draw_player_turn(player_two)
+#     position = game.get_position.to_i
+#     game.take_place(position, 'O')
+#   end
+#   game.draw_board
+#   game.draw_line
+#   counter += 1
+# end

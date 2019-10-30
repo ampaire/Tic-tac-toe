@@ -19,6 +19,10 @@ class GameLogic
         @board [combo[1]] == @board [combo[2]] &&
         board_full?(combo[0])
     end
+
+    def player_index(index, input = :X)
+        @board[index] = input
+    end
     
     def board_full?(index)
         @board[index] == :X || @board[index] == :O
@@ -26,13 +30,12 @@ class GameLogic
 
     def take_place(inpt, play)
         @board[inpt - 1] = play if play == 'O' || play == 'X'
-        @total_moves -= 1
+        count_turns -= 1
     end
 
     def count_turns
         @board.select{ |e| e == :X || e == :O}.size
     end
-
 
 
     def valid_move?(position)
@@ -52,11 +55,12 @@ class GameLogic
     end
 
     def get_current_player
-        if @total_moves%2 == 0
-          @current_player = player_two
+        if (count_turns%2).zero?
+            current_player = :X
         else
-          @current_player = player_one
+            current_player = :O
         end
+        current_player
     end
 
     def winner?
