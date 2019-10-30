@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-#require_relative '/lib/game_logic.rb'
+require_relative '../lib/game_logic.rb'
 
 class DisplayInterface
   attr_reader :board, :player_one, :player_two
