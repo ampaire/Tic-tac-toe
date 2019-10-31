@@ -53,12 +53,11 @@ class GameLogic
   end
 
   def current_player
-    if (count_turns % 2).zero?
-      current_player = :X
-    else
-      current_player = :O
-    end
-    current_player
+    current_player = if (count_turns % 2).zero?
+                       :X
+                     else
+                       :O
+                     end
   end
 
   def winner?
