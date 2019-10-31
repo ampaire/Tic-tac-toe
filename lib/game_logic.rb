@@ -33,7 +33,7 @@ class GameLogic
   end
 
   def count_turns
-    @board.select { |e| e == :X || e == :O }.size
+    @board.select { |e| %i[X O].include?(e) }.size
   end
 
   def valid_move?(position)
