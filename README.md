@@ -1,6 +1,6 @@
 ## Tic-Tac-Toe
 
-##Rules
+## Rules
 
 - Play occurs on a 3 by 3 grid of 9 squares.
 
