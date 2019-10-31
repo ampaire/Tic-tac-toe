@@ -67,7 +67,7 @@ class DisplayInterface < GameLogic
   end
 
   def draw_available_moves
-    my_available_moves = @game.available_moves()
+    my_available_moves = @game.available_moves
     puts '************************************************************'
     puts "*       This are the available moves  #{my_available_moves}             *"
     puts '************************************************************'
