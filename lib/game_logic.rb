@@ -3,7 +3,7 @@
 require_relative './players.rb'
 
 class GameLogic
-    attr_reader :board, :player_one, :player_two, :X , :O
+  attr_reader :board, :player_one, :player_two, :X , :O
     def initialize(players, board = (1..9).to_a)
         @board = board
         @player_one = Player.new(players)

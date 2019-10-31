@@ -24,7 +24,8 @@ Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
-
+Lint/UselessAssignment:
+  Enabled: false
 Layout/AlignHash:
   EnforcedColonStyle: key
 Layout/ExtraSpacing:
