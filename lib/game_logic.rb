@@ -3,12 +3,11 @@
 require_relative './players.rb'
 
 class GameLogic
-  attr_reader :board, :player_one, :player_two, :X , :O
+  attr_reader :board, :player_one, :player_two, :X ,:O
     def initialize(players, board = (1..9).to_a)
         @board = board
         @player_one = Player.new(players)
         @player_two = Player.new(players)
-       
     end
 
     SURE_WINS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6] , [1,4,7], [2,5,8], [0,4,8], [2,4,6]].freeze
