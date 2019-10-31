@@ -1,5 +1,16 @@
 ## Tic-Tac-Toe
-Final version of the project.
+
+##Rules
+
+- Play occurs on a 3 by 3 grid of 9 squares.
+
+- Two players takes turns only in the empty squares, the first making x's, the second o's.
+
+- A row is any three squares on the grid, adjacent, diagonally, vertically, or horizontally.
+
+- If one player places three of the same marks in a row, the player WINS! :D
+
+- If the spaces are all filled and there is no winner, the game ends in a draw. :( 
 
 Made by the Awesome Duo [Effie](https://github.com/ampaire) and [David Garcia](https://github.com/davitomix).
 
