@@ -23,7 +23,7 @@ class GameLogic
   def player_index(index, input = :X)
     @board[index] = input
   end
-  
+
   def board_full?(index)
     @board[index] == :X || @board[index] == :O
   end
@@ -43,33 +43,33 @@ class GameLogic
   def full?
     count_turns == 9
   end
+
   def draw?
     !won && full?
   end
-    
+
   def over?
     won || full? || draw?
   end
 
-  def get_current_player
+  def current_player
     if (count_turns % 2).zero?
       current_player = :X
     else
       current_player = :O
     end
-      current_player
+    current_player
   end
 
   def winner?
     if @board[won.first] == :X
-        :X
+      :X
     else
-        :O
+      :O
     end
   end
 
   def game_over
-    won || board_full?||game_draw
+    won || board_full? || game_draw
   end
-
 end

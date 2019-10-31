@@ -54,7 +54,7 @@ class DisplayInterface < GameLogic
   end
 
   def draw_player_turn
-    player = @game.get_current_player
+    player = @game.current_player
     if  player == :X
       puts '************************************************************'
       puts "*                  #{@player_one} its your turn!                *"
@@ -70,7 +70,7 @@ class DisplayInterface < GameLogic
     point = gets.strip
     point= @game.take_place(point)
     if @game.valid_move?(point)
-      @game.player_index(point,@game.get_current_player)
+      @game.player_index(point,@game.current_player)
       draw_player_turn
       draw_board
     else
