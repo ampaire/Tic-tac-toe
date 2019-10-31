@@ -23,5 +23,6 @@ The first player who is player_one is asked to enter their name and is assigned 
 On the main game state we have a numbered board, from 1 to 9 and a message prompting for user input. Player 'X' starts typing a number from 1 to 9 and pressing enter. Player 'O' will then be prompted for a number from 1 to 9. 
 
 If a player inputs an invalid number, he'll receive a warning and will be prompted for input again, until a valid value is provided. Game goes on until a player wins or ties. 
-The game displays the winner .
+The game displays the winner.
+
 <img src="img/2.png">
