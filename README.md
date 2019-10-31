@@ -13,7 +13,7 @@ or if using Windows you can simply run
 
 `main.exe`
 
-<img  align="right" width="400" src="img/Screen Shot 2019-10-31 at 14.11.35.png">
+<img  align="right" width="400" src="img/Screen Shot 2019-10-31 at 14.43.55.png">
 
 This is the starting screen of the game, here we have the header which includes the instructions for playing the game.
 
@@ -24,4 +24,4 @@ On the main game state we have a numbered board, from 1 to 9 and a message promp
 
 If a player inputs an invalid number, he'll receive a warning and will be prompted for input again, until a valid value is provided. Game goes on until a player wins or ties. 
 The game displays the winner .
-<img src="img/Screen Shot 2019-10-31 at 14.11.51.png">
+<img src="img/Screen Shot 2019-10-31 at 14.45.06">
