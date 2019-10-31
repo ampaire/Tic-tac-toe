@@ -14,7 +14,7 @@
 
 Made by the Awesome Duo [Effie](https://github.com/ampaire) and [David Garcia](https://github.com/davitomix).
 
-## INSTRUCTIONS
+## Instructions
 
 To start the game, in a terminal navigate to the root directory and type:
 
