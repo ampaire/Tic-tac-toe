@@ -10,7 +10,7 @@ class GameLogic
     @player_two = Player.new(players)
   end
 
-  SURE_WINS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]].freeze
+  SURE_WINS = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]].freeze
 
   def won
     SURE_WINS.detect do |combo|
@@ -23,7 +23,7 @@ class GameLogic
   def player_index(index, input = :X)
     @board[index] = input
   end
-
+  
   def board_full?(index)
     @board[index] == :X || @board[index] == :O
   end
@@ -71,5 +71,5 @@ class GameLogic
   def game_over
     won || board_full?||game_draw
   end
-  
+
 end
