@@ -1,4 +1,5 @@
 ## Tic-Tac-Toe
+Made by the Awesome Duo [Effie](https://github.com/ampaire) and [David Garcia](https://github.com/davitomix).
 
 ## Rules
 
@@ -11,8 +12,6 @@
 - If one player places three of the same marks in a row, the player WINS! :D
 
 - If the spaces are all filled and there is no winner, the game ends in a draw. :( 
-
-Made by the Awesome Duo [Effie](https://github.com/ampaire) and [David Garcia](https://github.com/davitomix).
 
 ## Instructions
 
