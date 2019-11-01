@@ -80,6 +80,7 @@ class DisplayInterface < GameLogic
       move
     end
   end
+  
   def play
     move until @game.over?
     if @game.won
