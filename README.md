@@ -1,5 +1,4 @@
 ## Tic-Tac-Toe
-Made by the Awesome Duo [Effie](https://github.com/ampaire) and [David Garcia](https://github.com/davitomix).
 
 ## Rules
 
@@ -36,3 +35,6 @@ If a player inputs an invalid number, he'll receive a warning and will be prompt
 The game displays the winner.
 
 <img src="img/2.png">
+
+## Contributors
+Made by the Awesome Duo [Effie](https://github.com/ampaire) and [David Garcia](https://github.com/davitomix).
