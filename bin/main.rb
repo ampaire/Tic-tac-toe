@@ -68,6 +68,26 @@ class DisplayInterface < GameLogic
     puts '************************************************************'
   end
 
+  def play_again?
+    puts '************************************************************'
+    puts '*                     Play again? (y/n)                    *'
+    puts '************************************************************'
+    play_again = gets.chomp
+     if @game.valid_char?(play_again)
+      if @game.repeat_game?(play_again)
+        true
+      else
+        false
+      end
+     else
+      puts '************************************************************'
+      puts '*                   Not a valid input :(                   *'
+      puts '*                         Try again                        *'
+      puts '************************************************************'
+      play_again?
+     end
+  end
+
   def move
     point = gets.strip
     point= @game.take_place(point)
@@ -80,23 +100,6 @@ class DisplayInterface < GameLogic
       puts "You need to enter a valid number between 1-9"
       draw_board
       move
-    end
-  end
-
-  def play_again?
-    puts '************************************************************'
-    puts '*                   Play again?  (y / n)                   *'
-    puts '************************************************************'
-    @play_again_selection = gets.chomp
-    if @game.repeat_game?(@play_again_selection)
-      true
-    elsif @game.not_valid_char?(@play_again_selection)
-      puts '************************************************************'
-      puts "*                     Invalid input                        *"
-      puts '************************************************************'
-      false
-    else
-      false
     end
   end
 
