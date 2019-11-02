@@ -44,6 +44,14 @@ class GameLogic
     position.between?(0, 8) && !board_full?(position)
   end
 
+  def valid_char?(value)
+    value == 'y' || value == 'Y' || value == 'x' || value == 'X'
+  end
+
+  def exit
+    
+  end
+
   def full?
     count_turns == 9
   end
