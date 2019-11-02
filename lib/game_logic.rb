@@ -36,6 +36,10 @@ class GameLogic
     @board.select { |e| %i[X O].include?(e) }.size
   end
 
+  def available_moves
+    available_moves = @board.select { |e| (1..9).include?(e) }
+  end
+
   def valid_move?(position)
     position.between?(0, 8) && !board_full?(position)
   end

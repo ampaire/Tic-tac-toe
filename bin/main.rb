@@ -14,8 +14,6 @@ class DisplayInterface < GameLogic
     @position = gets.chomp
   end
 
-
-
   def draw_board
     puts " #{@game.board[0]} | #{@game.board[1]} | #{@game.board[2]} "
 
@@ -55,15 +53,19 @@ class DisplayInterface < GameLogic
 
   def draw_player_turn
     player = @game.current_player
+    available_moves = @game.available_moves
     if  player == :X
       puts '************************************************************'
-      puts "*                  #{@player_one} its your turn!                *"
+      puts "*                  #{@player_one} its your turn!           *"
       puts '************************************************************'
     else
       puts '************************************************************'
-      puts "*                  #{@player_two} its your turn!                *"
+      puts "*                  #{@player_two} its your turn!           *"
       puts '************************************************************'
     end
+    puts '************************************************************'
+    p "*             Available moves #{available_moves}          *"
+    puts '************************************************************'
   end
 
   def move
@@ -80,7 +82,7 @@ class DisplayInterface < GameLogic
       move
     end
   end
-  
+
   def play
     move until @game.over?
     if @game.won
