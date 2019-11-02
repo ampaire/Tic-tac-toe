@@ -87,13 +87,6 @@ class DisplayInterface < GameLogic
     puts '************************************************************'
     puts '*                   Play again?  (y / n)                   *'
     puts '************************************************************'
-    play_again = gets.chomp
-    if @game.valid_char?(play_again)
-    else
-      puts '************************************************************'
-      puts '*                     Invalid character                    *'
-      puts '************************************************************'
-    end
   end
 
   def play
