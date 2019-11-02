@@ -87,6 +87,17 @@ class DisplayInterface < GameLogic
     puts '************************************************************'
     puts '*                   Play again?  (y / n)                   *'
     puts '************************************************************'
+    @play_again_selection = gets.chomp
+    if @game.repeat_game?(@play_again_selection)
+      true
+    elsif @game.not_valid_char?(@play_again_selection)
+      puts '************************************************************'
+      puts "*                     Invalid input                        *"
+      puts '************************************************************'
+      false
+    else
+      false
+    end
   end
 
   def play
@@ -109,9 +120,13 @@ class DisplayInterface < GameLogic
   end
 end
 
-game = DisplayInterface.new
-game.draw_welcome
-game.draw_player_turn
-game.draw_board
-game.play
-game.play_again?
+repeat_game = true
+
+while repeat_game
+  game = DisplayInterface.new
+  game.draw_welcome
+  game.draw_player_turn
+  game.draw_board
+  game.play
+  repeat_game = game.play_again?
+end

@@ -44,6 +44,22 @@ class GameLogic
     position.between?(0, 8) && !board_full?(position)
   end
 
+  def not_valid_char?(element)
+    not_valid = if element != 'y' && element != 'Y' && element != 'n' && element != 'N'
+                  true
+                else
+                  false
+                end
+  end
+
+  def repeat_game?(element)
+    @repeat_game = if element == 'y' || element == 'Y'
+                     true
+                   else
+                     false
+                   end
+  end
+
   def full?
     count_turns == 9
   end
