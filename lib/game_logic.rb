@@ -53,7 +53,7 @@ class GameLogic
   end
 
   def repeat_game?(element)
-    @repeat_game = if ['y' , 'Y'].include?(element)
+    @repeat_game = if %w[y Y].include?(element)
                      true
                    else
                      false
