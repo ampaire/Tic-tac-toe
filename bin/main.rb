@@ -138,4 +138,3 @@ while repeat_game
   game.draw_play_again?
   repeat_game = game.play_again?
 end
-
