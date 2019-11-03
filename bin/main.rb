@@ -42,11 +42,14 @@ class DisplayInterface < GameLogic
     puts 'No duplicate numbers are allowed'
     puts '--------------------------------'
     puts 'Player 1: What is your name?:'
-    @player_one = gets.chomp
+    @@player_one = gets.chomp
     puts 'Player 2: What is your name?:'
-    @player_two = gets.chomp
+    @@player_two = gets.chomp
+  end
+
+  def draw_game_start
     puts '************************************************************'
-    puts "Player one X is #{@player_one} and Player two O #{@player_two}"
+    puts "Player one X is #{@@player_one} and Player two O #{@@player_two}"
     puts '************************************************************'
     puts 'Game Start!'
   end
@@ -56,11 +59,11 @@ class DisplayInterface < GameLogic
     available_moves = @game.available_moves
     if  player == :X
       puts '************************************************************'
-      puts "*                  #{@player_one} its your turn!           *"
+      puts "*                  #{@@player_one} its your turn!           *"
       puts '************************************************************'
     else
       puts '************************************************************'
-      puts "*                  #{@player_two} its your turn!           *"
+      puts "*                  #{@@player_two} its your turn!           *"
       puts '************************************************************'
     end
     puts '************************************************************'
@@ -112,11 +115,11 @@ class DisplayInterface < GameLogic
     if @game.won
       if @game.winner? == :X
         puts '************************************************************'
-        puts "*      CONGRATULATIONS #{player_one} You won this round    *"
+        puts "*      CONGRATULATIONS #{@@player_one} You won this round    *"
         puts '************************************************************'
       else
         puts '************************************************************'
-        puts "*      CONGRATULATIONS #{player_two} You won this round    *"
+        puts "*      CONGRATULATIONS #{@@player_two} You won this round    *"
         puts '************************************************************'
       end
     elsif @game.draw?
@@ -128,10 +131,13 @@ class DisplayInterface < GameLogic
 end
 
 repeat_game = true
+plays = 1
 
 while repeat_game
   game = DisplayInterface.new
-  game.draw_welcome
+  game.draw_welcome if plays == 1
+  plays += 1
+  game.draw_game_start
   game.draw_player_turn
   game.draw_board
   game.play
