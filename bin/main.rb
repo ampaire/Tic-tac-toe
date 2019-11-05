@@ -95,12 +95,13 @@ end
 
 #########
 counter = 0
+game_on = true
 # initial instructions for player
 game = DisplayInterface.new
 game.draw_welcome
 player_one = game.player_one
 player_two = game.player_two
-while counter < 9
+while game_on
   # loop for each move
   if game.get_current_player == player_one
     game.draw_player_turn(player_one)
@@ -114,6 +115,9 @@ while counter < 9
   game.draw_board
   game.draw_line
   counter += 1
+  if counter > 8
+    game_on = false
+  end
 end
 
 left_positions = [2, 4, 5, 8]
