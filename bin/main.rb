@@ -74,31 +74,38 @@ class DisplayInterface
     puts '************************************************************'
   end
 
-  def invalid_move
+  def draw_invalid_move
     puts '************************************************************'
     puts '*                This move is not valid!                   *'
     puts '************************************************************'
   end
 
-  def winning_move
+  def draw_win
     puts '************************************************************'
     puts '*                This is a winning move!                   *'
     puts '************************************************************'
   end
 
-  def draw_move
+  def draw_itsa_draw
     puts '************************************************************'
     puts '*                    This is a draw!                       *'
     puts '************************************************************'
   end
 
-  def draft?
+  def draw?
     true if @total_moves == 0
+  end
+
+  def invalid_move?
+    false
+  end
+
+  def win?
+    false
   end
 end
 
 #########
-counter = 0
 game_on = true
 # initial instructions for player
 game = DisplayInterface.new
@@ -118,14 +125,15 @@ while game_on
   end
   game.draw_board
   game.draw_line
-  counter += 1
-  if game.draft?
+  if game.draw?
+    game.draw_itsa_draw
     game_on = false
+  end
+  if game.invalid_move?
+    game.draw_invalid_move
+  end
+  if game.win?
+    game.draw_win
   end
 end
 
-left_positions = [2, 4, 5, 8]
-game.draw_available_moves(left_positions)
-game.invalid_move
-game.winning_move
-game.draw_move
