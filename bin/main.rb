@@ -91,6 +91,10 @@ class DisplayInterface
     puts '*                    This is a draw!                       *'
     puts '************************************************************'
   end
+
+  def draft?
+    true if @total_moves == 0
+  end
 end
 
 #########
@@ -115,7 +119,7 @@ while game_on
   game.draw_board
   game.draw_line
   counter += 1
-  if counter > 8
+  if game.draft?
     game_on = false
   end
 end
