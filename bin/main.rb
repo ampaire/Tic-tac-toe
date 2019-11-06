@@ -106,42 +106,42 @@ class DisplayInterface
   
   def play
     game_on = true
-    player_one = game.player_one
-    player_two = game.player_two
+    @player_one = player_one
+    @player_two = player_two
     while game_on
       # loop for each move
-      if game.get_current_player == player_one 
-        if game.draw?
-          game.draw_itsa_draw
+      if get_current_player == player_one 
+        if draw?
+          draw_itsa_draw
           game_on = false
-        elsif game.invalid_move?
-        game.draw_invalid_move
-        elsif game.win?
-          game.draw_win
+        elsif invalid_move?
+        draw_invalid_move
+        elsif win?
+          draw_win
         end
         if game_on
-          game.draw_player_turn(player_one)
-          position = game.get_position.to_i
-          game.take_place(position, 'X') 
-          game.draw_board 
+          draw_player_turn(player_one)
+          position = get_position.to_i
+          take_place(position, 'X') 
+          draw_board 
         end
       else 
-        if game.draw?
-          game.draw_itsa_draw
+        if draw?
+          draw_itsa_draw
           game_on = false
-        elsif game.invalid_move?
-        game.draw_invalid_move
-        elsif game.win?
-          game.draw_win
+        elsif invalid_move?
+        draw_invalid_move
+        elsif win?
+          draw_win
         end
         if game_on
-          game.draw_player_turn(player_two)
-          position = game.get_position.to_i
-          game.take_place(position, 'O') 
-          game.draw_board
+          draw_player_turn(player_two)
+          position = get_position.to_i
+          take_place(position, 'O') 
+          draw_board
         end
       end
-      game.draw_line
+      draw_line
     end
   end
 end
@@ -151,5 +151,4 @@ end
 # initial instructions for player
 game = DisplayInterface.new
 game.draw_welcome
-
-
+game.play
