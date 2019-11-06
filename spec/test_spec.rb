@@ -1,7 +1,15 @@
 # frozen_string_literal: true
 
-require_relative '../lib/game_logic.rb'
+require_relative '../bin/main.rb'
 
 describe "GameLogic" do
+    describe "#over" do
+        it "returns" do
+            
+        end
+        
+        
+    end
+    
     
 end
