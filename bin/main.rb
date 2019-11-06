@@ -103,48 +103,53 @@ class DisplayInterface
   def win?
     false
   end
+  
+  def play
+    game_on = true
+    player_one = game.player_one
+    player_two = game.player_two
+    while game_on
+      # loop for each move
+      if game.get_current_player == player_one 
+        if game.draw?
+          game.draw_itsa_draw
+          game_on = false
+        elsif game.invalid_move?
+        game.draw_invalid_move
+        elsif game.win?
+          game.draw_win
+        end
+        if game_on
+          game.draw_player_turn(player_one)
+          position = game.get_position.to_i
+          game.take_place(position, 'X') 
+          game.draw_board 
+        end
+      else 
+        if game.draw?
+          game.draw_itsa_draw
+          game_on = false
+        elsif game.invalid_move?
+        game.draw_invalid_move
+        elsif game.win?
+          game.draw_win
+        end
+        if game_on
+          game.draw_player_turn(player_two)
+          position = game.get_position.to_i
+          game.take_place(position, 'O') 
+          game.draw_board
+        end
+      end
+      game.draw_line
+    end
+  end
 end
 
 #########
-game_on = true
+
 # initial instructions for player
 game = DisplayInterface.new
 game.draw_welcome
-player_one = game.player_one
-player_two = game.player_two
-while game_on
-  # loop for each move
-  if game.get_current_player == player_one 
-    if game.draw?
-      game.draw_itsa_draw
-      game_on = false
-    elsif game.invalid_move?
-    game.draw_invalid_move
-    elsif game.win?
-      game.draw_win
-    end
-    if game_on
-      game.draw_player_turn(player_one)
-      position = game.get_position.to_i
-      game.take_place(position, 'X') 
-      game.draw_board 
-    end
-  else 
-    if game.draw?
-      game.draw_itsa_draw
-      game_on = false
-    elsif game.invalid_move?
-    game.draw_invalid_move
-    elsif game.win?
-      game.draw_win
-    end
-    if game_on
-      game.draw_player_turn(player_two)
-      position = game.get_position.to_i
-      game.take_place(position, 'O') 
-      game.draw_board
-    end
-  end
-  game.draw_line
-end
+
 
