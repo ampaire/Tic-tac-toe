@@ -149,4 +149,13 @@ describe GameLogic do
       end
     end
   end
+
+  describe '#draw?' do
+    context 'If there is a won and the board isnt full' do
+      subject { mock_game.draw? }
+      it 'returns false' do
+        expect(subject).to be false
+      end
+    end
+  end
 end
