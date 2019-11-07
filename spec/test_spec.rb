@@ -143,7 +143,7 @@ describe GameLogic do
     end
 
     context 'If the input is different from Y or y' do
-      subject {mock_game.repeat_game?('W')}
+      subject { mock_game.repeat_game?('W') }
       it 'returns false' do
         expect(subject).to be false
       end
@@ -193,7 +193,7 @@ describe GameLogic do
 
   describe '#current_player' do
     context 'If the count is a even number' do
-      subject {mock_game.current_player}
+      subject { mock_game.current_player }
       it 'returns player :X' do
         expect(subject).to eql(:X)
       end
