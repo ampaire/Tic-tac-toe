@@ -134,4 +134,20 @@ describe GameLogic do
         end
       end
     end
+
+    describe '#repeat_game?' do
+      context 'If the input value is a Y or y' do
+        subject { mock_game.repeat_game?('y') }
+        it 'returns true ' do
+          expect(subject).to be true
+        end
+      end
+
+      context 'If the input value is different than Y or y' do
+        subject { mock_game.repeat_game?('N') }
+        it 'returns false' do
+          expect(subject).to be false 
+        end
+      end
+    end
 end
