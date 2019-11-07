@@ -192,5 +192,26 @@ describe GameLogic do
       end
     end
 
+    describe '#current_player' do
+      context 'If the count is a even number' do
+        subject { mock_game.current_player }
+        it 'returns player :X' do
+          expect(subject).to eql(:X)
+        end
+      end
 
+      context 'If the count is a odd number' do 
+        it 'returns player :O' do
+          mock_game.player_index(5, :O)
+          expect(mock_game.current_player).to eql(:O)
+        end
+      end 
+    end
+
+    describe '' do
+      context '' do
+        it '' do
+        end
+      end
+    end
 end
