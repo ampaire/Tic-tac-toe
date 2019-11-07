@@ -3,6 +3,7 @@
 require_relative '../lib/game_logic.rb'
 players = ['Effie', 'David']
 mock_game = GameLogic.new(players)
+empty_game = GameLogic.new(players)
 
 describe GameLogic do
     describe "#won" do 
@@ -40,6 +41,22 @@ describe GameLogic do
         subject { result = mock_game.take_place(3) }
         it 'returns the input as integer' do
           expect(subject).to be_a(Integer)
+        end
+      end
+    end
+
+    describe '#count_turns' do
+      context 'If there are filled  slots in the board' do
+        subject { result = mock_game.count_turns }
+        it 'returns the nuber of filled slots' do
+          expect(subject).to eql(4)
+        end
+      end
+
+      context 'If there is no filled slots in the board' do
+        it 'returns 0 slots filled' do 
+          result = empty_game.count_turns
+          expect(result).to eql(0)
         end
       end
     end
