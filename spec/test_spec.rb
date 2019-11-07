@@ -7,21 +7,28 @@ empty_game = GameLogic.new(players)
 
 describe GameLogic do
     describe "#won" do 
-      context 'Check if theres a win move and check the pattern' do
-        it 'returns the first element where is not false' do 
+      context 'If theres a win pattern in the board' do
+        subject { result = mock_game.won }
+        it 'returns an array whit the winning pattern' do 
           mock_game.player_index(1)
           mock_game.player_index(4)
           mock_game.player_index(7)
-          result = mock_game.won
-          expect(result).to eql([1, 4, 7])
+          expect(subject).to eql([1, 4, 7])
+        end
+      end
+
+      context 'If theres no a win pattern in the board' do
+        subject { result = empty_game.won }
+        it 'returns nil' do
+          expect(subject).to be nil
         end
       end
     end
 
     describe '#player_index' do
-      context 'Puts into the slot player selection :X or :O' do
+      context 'If is given an index and a symbol :X or :O' do
         subject { result = mock_game.player_index(2) }
-        it 'Returns the symbol to be fille in the slot' do
+        it 'Returns the symbol to be filled in the slot (index)' do
           expect(subject).to eql(:X)
         end
       end
@@ -36,9 +43,9 @@ describe GameLogic do
       end
 
       context 'If the slot in the board is not filled' do
+        subject { result = mock_game.board_full?(5) } 
         it 'returns false' do
-          result = mock_game.board_full?(5)
-          expect(result).to be false
+          expect(subject).to be false
         end
       end
     end
