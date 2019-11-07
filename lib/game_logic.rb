@@ -86,9 +86,6 @@ class GameLogic
     else
       :O
     end
-  end
-
-  def game_over
-    won || board_full? || game_draw
-  end
+  end 
 end
+
