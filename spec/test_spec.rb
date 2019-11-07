@@ -19,9 +19,9 @@ describe GameLogic do
 
     describe '#player_index' do
       context 'Puts into the slot player selection :X or :O' do
+        subject { result = mock_game.player_index(2) }
         it 'Returns the symbol to be fille in the slot' do
-          result = mock_game.player_index(2)
-          expect(result).to eql(:X)
+          expect(subject).to eql(:X)
         end
       end
     end
@@ -31,6 +31,13 @@ describe GameLogic do
         subject { mock_game.board_full?(1) }
         it 'returns true' do
           expect(subject).to be true
+        end
+      end
+    end
+
+    describe '#take_place' do
+      context 'Check if the input is a integer' do
+        it 'returns the input as integer' do
         end
       end
     end
