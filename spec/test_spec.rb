@@ -39,4 +39,20 @@ describe GameLogic do
       end
     end
   end
+
+  describe '#board_full?' do
+    context 'If the slot in the board is filled with X or O' do
+      subject { mock_game.board_full?(1) }
+      it 'returns true' do
+        expect(subject).to be true
+      end
+    end
+
+    context 'If the slot in the board is not filled' do
+      subject { mock_game.board_full?(9) } 
+      it 'returns false' do
+        expect(subject).to be false
+      end
+    end
+  end
 end
