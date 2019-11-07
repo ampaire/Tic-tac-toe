@@ -158,4 +158,20 @@ describe GameLogic do
       end
     end
   end
+
+  describe '#over?' do
+    context 'If there is a won patter' do
+      subject { mock_game.over? }
+      it 'returns the pattern in an array' do
+        expect(subject).to eql([1, 4, 7])
+      end
+    end
+
+    context 'If there is no a won, full or draw' do
+      subject { empty_game.over? }
+      it 'returns false' do
+        expect(subject).to be false
+      end
+    end 
+  end
 end
