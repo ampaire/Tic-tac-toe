@@ -113,7 +113,7 @@ describe GameLogic do
 
     context 'If the given input is not a valid move' do
       subject { mock_game.valid_move?(2) }
-      it 'returns false' do 
+      it 'returns false' do
         expect(subject).to be false
       end
     end 
