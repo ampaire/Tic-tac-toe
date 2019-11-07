@@ -102,6 +102,22 @@ describe GameLogic do
       expect(subject).to eql([])
     end
   end
+  
+  describe '#valid_move?' do
+    context 'If the given input is a valid move' do
+      subject { mock_game.valid_move?(5) }
+      it 'returns true' do
+        expect(subject).to be true
+      end
+    end
+
+    context 'If the given input is not a valid move' do
+      subject { mock_game.valid_move?(2) }
+      it 'returns false' do 
+        expect(subject).to be false
+      end
+    end 
+  end
 
   describe '#valid_char' do
     context 'If the given input is a valid selection (y/n)' do
