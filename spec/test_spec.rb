@@ -87,5 +87,35 @@ describe GameLogic do
       end
     end
   end
+  
+  describe '#available_moves'
+  context 'Returns the available moves on the board if tthere are any' do
+    subject { mock_game.available_moves }
+    it 'returns an array with the available moves' do
+      expect(subject).to eql([1, 4, 6, 7, 9])
+    end
+  end
+
+  context 'If there is no available moves in the board' do
+    subject { full_game.available_moves }
+    it 'return an empty array' do
+      expect(subject).to eql([])
+    end
+  end
+
+  describe '#valid_char' do
+    context 'If the given input is a valid selection (y/n)' do
+      subject { mock_game.valid_char?('Y') }
+      it 'returns true' do
+        expect(subject).to be true
+      end
+    end
+    context 'If the given input is not a invalid selection' do
+      subject { mock_game.valid_char?('W') }
+      it 'returns invalid selection' do
+        expect(subject).to be false
+      end
+    end
+  end
 
 end
