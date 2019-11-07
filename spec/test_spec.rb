@@ -5,9 +5,10 @@ players = ['Effie', 'David']
 mock_game = GameLogic.new(players)
 empty_game = GameLogic.new(players)
 full_game = GameLogic.new(players)
-
+o_game = GameLogic.new(players)
 for x in (0..8) do
   full_game.player_index(x)
+  o_game.player_index(x, :O)
 end
 
 describe GameLogic do
@@ -208,9 +209,18 @@ describe GameLogic do
       end 
     end
 
-    describe '' do
-      context '' do
-        it '' do
+    describe '#winner?' do
+      context 'If theres a won pattern and was the first player' do
+        subject { mock_game.winner? }
+        it 'returns :X' do
+          expect(subject).to eql(:X)
+        end
+      end
+
+      context 'If theres a won pattern and was the second player' do
+        subject { o_game.winner? }
+        it 'returns :O' do
+          expect(subject).to eql(:O)
         end
       end
     end
