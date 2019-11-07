@@ -102,4 +102,20 @@ describe GameLogic do
         end
       end
     end
+
+    describe '#valid_move?' do
+      context 'If the given input is a valid move' do
+        subject { result = mock_game.valid_move?(5) }
+        it 'returns true' do
+          expect(subject).to be true
+        end
+      end
+      
+      context 'If the given input is not a valid move' do
+        subject { result = mock_game.valid_move?(2) }
+        it 'return false' do
+          expect(subject).to be false
+        end
+      end
+    end
 end
