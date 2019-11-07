@@ -20,6 +20,8 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   ExcludedMethods: ["describe"]
 
+Style/BlockComments:
+  Enabled: false
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
