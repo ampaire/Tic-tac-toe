@@ -134,4 +134,19 @@ describe GameLogic do
     end
   end
 
+  describe '#full?' do
+    context 'If the counter of turns reach 9' do
+      subject { full_game.full? }
+      it 'returns true' do
+        expect(subject).to be true
+      end
+    end
+
+    context 'If the counter of turns is less than 9' do
+      subject { mock_game.full? }
+      it 'returns false' do
+        expect(subject).to be false
+      end
+    end
+  end
 end
