@@ -118,4 +118,20 @@ describe GameLogic do
         end
       end
     end
+
+    describe '#valid_char?' do
+      context 'If the given input is a valid selection (y/n)' do
+        subject { result = mock_game.valid_char?('Y') }
+        it 'returns true' do
+          expect(subject).to be true
+        end
+      end
+
+      context 'If the given input is a invalid selection' do
+        subject { result = mock_game.valid_char?('W') }
+        it 'returns false' do
+          expect(subject).to be false
+        end
+      end
+    end
 end
