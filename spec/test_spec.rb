@@ -10,3 +10,6 @@ o_game = GameLogic.new(players)
   full_game.player_index(x)
   o_game.player_index(x, :O)
 end
+
+describe GameLogic do
+end
