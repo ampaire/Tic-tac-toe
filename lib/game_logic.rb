@@ -86,6 +86,5 @@ class GameLogic
     else
       :O
     end
-  end 
+  end
 end
-
