@@ -22,6 +22,8 @@ Metrics/BlockLength:
 
 Style/Documentation:
   Enabled: false
+Style/BlockComments:
+  Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
 Lint/UselessAssignment:
