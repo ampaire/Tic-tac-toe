@@ -12,4 +12,15 @@ o_game = GameLogic.new(players)
 end
 
 describe GameLogic do
+  describe '#won' do
+    context 'If theres a win pattern in the board' do
+      subject { mock_game.won }
+      it 'returns an array whit thw winning pattern' do
+        mock_game.player_index(1)
+        mock_game.player_index(4)
+        mock_game.player_index(7)
+        expect(subject).to eql([1, 4, 7])
+      end
+    end
+  end
 end
