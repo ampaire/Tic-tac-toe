@@ -34,13 +34,27 @@ describe GameLogic do
           expect(subject).to be true
         end
       end
+
+      context 'If the slot in the board is not filled' do
+        it 'returns false' do
+          result = mock_game.board_full?(5)
+          expect(result).to be false
+        end
+      end
     end
 
     describe '#take_place' do
-      context 'Check if the input is a integer' do
+      context 'Recieve the position as string input' do
         subject { result = mock_game.take_place(3) }
         it 'returns the input as integer' do
           expect(subject).to be_a(Integer)
+        end
+      end
+
+      context 'Recieve a letter as input for position' do
+        subject {  result = mock_game.take_place('w') }
+        it 'returns -1' do 
+          expect(subject).to eql(-1)
         end
       end
     end
