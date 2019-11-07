@@ -64,11 +64,28 @@ describe GameLogic do
        end
     end
 
-    context 'Recieve a letter as input for position' do
+    context 'Recieves a letter as input for position' do
       subject { mock_game.take_place('w') }
       it 'returns -1' do
         expect(subject).to eql(-1)
       end
     end
   end
+
+  describe '#count_turns' do
+    context 'If there are some filled slots on the board' do
+      subject { mock_game.count_turns }
+      it 'returns the number of filled slots' do
+        expect(subject).to eql(4)
+      end
+    end
+
+    context 'If there are no filled slots in the board' do
+      subject { empty_game.count_turns }
+      it 'returns 0 slots filled' do
+        expect(subject).to eql(0)
+      end
+    end
+  end
+
 end
