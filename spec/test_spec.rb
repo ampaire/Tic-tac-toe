@@ -125,6 +125,13 @@ describe GameLogic do
         expect(subject).to be true
       end
     end
+
+    context 'If the input is different from Y or y' do
+      subject {mock_game.repeat_game?('W')}
+      it 'returns false' do
+        expect(subject).to be false
+      end
+    end
   end
 
 end
