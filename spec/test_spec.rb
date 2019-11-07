@@ -30,4 +30,13 @@ describe GameLogic do
       end
     end
   end
+
+  describe '#player_index' do
+    context 'If is given an index and a symbol :X or :O' do
+      subject { mock_game.player_index(2) }
+      it 'Return the symbol to be placed on the slot' do
+        expect(subject).to eql(:X)
+      end
+    end
+  end
 end
