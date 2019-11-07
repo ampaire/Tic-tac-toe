@@ -15,7 +15,7 @@ describe GameLogic do
   describe '#won' do
     context 'If theres a win pattern in the board' do
       subject { mock_game.won }
-      it 'returns an array whit thw winning pattern' do
+      it 'returns an array with thw winning pattern' do
         mock_game.player_index(1)
         mock_game.player_index(4)
         mock_game.player_index(7)
@@ -23,7 +23,7 @@ describe GameLogic do
       end
     end
 
-    context 'If theres no a win pattern in the board' do
+    context 'If theres no win pattern in the board' do
       subject { empty_game.won }
       it 'returns nil' do
         expect(subject).to be nil
@@ -41,17 +41,33 @@ describe GameLogic do
   end
 
   describe '#board_full?' do
-    context 'If the slot in the board is filled with X or O' do
+    context 'If all the slots in the board are filled with X or O' do
       subject { mock_game.board_full?(1) }
       it 'returns true' do
         expect(subject).to be true
       end
     end
 
-    context 'If the slot in the board is not filled' do
+    context 'If all the slots in the board are not filled' do
       subject { mock_game.board_full?(9) } 
       it 'returns false' do
         expect(subject).to be false
+      end
+    end
+  end
+
+  describe "#take_place" do
+    context 'Recieve the position as string input' do
+      subject { mock_game.take_place(3) }
+      it 'returns the input as integer' do
+        expect(subject).to be_a(Integer)
+       end
+    end
+
+    context 'Recieve a letter as input for position' do
+      subject { mock_game.take_place('w') }
+      it 'returns -1' do
+        expect(subject).to eql(-1)
       end
     end
   end
