@@ -191,4 +191,20 @@ describe GameLogic do
       end
     end
   end
+
+  describe '#winner?' do
+    context 'If there is a won patter and was the first player' do
+      subject { mock_game.winner? }
+      it 'returns :X' do
+        expect(subject).to eql(:X)
+      end
+    end
+
+    context 'If there is a won pattern and was the second player' do
+      subject { o_game.winner? }
+      it 'returns :O' do
+        expect(subject).to eql(:O)
+      end
+    end
+  end
 end
