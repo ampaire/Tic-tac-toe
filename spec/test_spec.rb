@@ -4,6 +4,11 @@ require_relative '../lib/game_logic.rb'
 players = ['Effie', 'David']
 mock_game = GameLogic.new(players)
 empty_game = GameLogic.new(players)
+full_game = GameLogic.new(players)
+
+for x in (0..8) do
+  full_game.player_index(x)
+end
 
 describe GameLogic do
     describe "#won" do 
@@ -69,7 +74,7 @@ describe GameLogic do
     describe '#count_turns' do
       context 'If there are filled  slots in the board' do
         subject { result = mock_game.count_turns }
-        it 'returns the nuber of filled slots' do
+        it 'returns the number of filled slots' do
           expect(subject).to eql(4)
         end
       end
@@ -78,6 +83,22 @@ describe GameLogic do
         it 'returns 0 slots filled' do 
           result = empty_game.count_turns
           expect(result).to eql(0)
+        end
+      end
+    end
+
+    describe '#available_moves' do
+      context 'If there is available moves in the board' do
+        it 'return an array with the available moves' do
+          result = mock_game.available_moves
+          expect(result).to eql([1, 4, 6, 7, 9])
+        end
+      end
+
+      context 'If there is no available moves in the board' do
+        it 'return an empty array' do
+          result = full_game.available_moves
+          expect(result).to eql([])
         end
       end
     end
