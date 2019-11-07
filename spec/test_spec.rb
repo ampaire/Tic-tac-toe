@@ -87,7 +87,7 @@ describe GameLogic do
       end
     end
   end
-  
+
   describe '#available_moves'
   context 'Returns the available moves on the board if tthere are any' do
     subject { mock_game.available_moves }
@@ -102,7 +102,7 @@ describe GameLogic do
       expect(subject).to eql([])
     end
   end
-  
+
   describe '#valid_move?' do
     context 'If the given input is a valid move' do
       subject { mock_game.valid_move?(5) }
@@ -116,7 +116,7 @@ describe GameLogic do
       it 'returns false' do
         expect(subject).to be false
       end
-    end 
+    end
   end
 
   describe '#valid_char' do
@@ -188,7 +188,7 @@ describe GameLogic do
       it 'returns false' do
         expect(subject).to be false
       end
-    end 
+    end
   end
 
   describe '#current_player' do
