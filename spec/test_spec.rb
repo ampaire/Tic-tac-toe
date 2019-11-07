@@ -22,5 +22,12 @@ describe GameLogic do
         expect(subject).to eql([1, 4, 7])
       end
     end
+
+    context 'If theres no a win pattern in the board' do
+      subject { empty_game.won }
+      it 'returns nil' do
+        expect(subject).to be nil
+      end
+    end
   end
 end
