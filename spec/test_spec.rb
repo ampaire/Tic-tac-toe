@@ -37,7 +37,9 @@ describe GameLogic do
 
     describe '#take_place' do
       context 'Check if the input is a integer' do
+        subject { result = mock_game.take_place(3) }
         it 'returns the input as integer' do
+          expect(subject).to be_a(Integer)
         end
       end
     end
