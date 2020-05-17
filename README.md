@@ -1,6 +1,7 @@
-## Tic-Tac-Toe
+## TIC TAC TOE
 
-## Rules
+
+## RULES
 
 - Play occurs on a 3 by 3 grid of 9 squares.
 
@@ -12,7 +13,7 @@
 
 - If the spaces are all filled and there is no winner, the game ends in a draw. :( 
 
-## Instructions
+## INSTRUCTIONS
 
 To start the game, in a terminal navigate to the root directory and type:
 
@@ -36,5 +37,5 @@ The game displays the winner.
 
 <img src="img/2.png">
 
-## Contributors
+## CONTRIBUTIONS
 Made by the Awesome Duo [Effie](https://github.com/ampaire) and [David Garcia](https://github.com/davitomix).
