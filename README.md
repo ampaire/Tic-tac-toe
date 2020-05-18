@@ -55,3 +55,5 @@ Made by the Awesome Duo
 
 ## CONTRIBUTIONS
 
+If you find issues or would like to make a suggestion on how we can improve our project, please post it on the [issues page](https://github.com/ampaire/Tic-tac-toe/issues).
+
