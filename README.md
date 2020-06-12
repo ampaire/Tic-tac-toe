@@ -4,7 +4,7 @@
 <img src="img/2.png">
 This is an implementation of the Tic tac toe game in Ruby language. 
 
-Tic tac toe is a game played by two players who take turns in fillimg the positions on the game board until there is a winner or until the board is full. The winner is the one who manages to have three of their marks in a straight line. If the board is full and there is no player with three of their markd in a straight line, then it's considered to be a draw.
+Tic tac toe is a game played by two players who take turns in fillimg the positions on the game board until there is a winner or till the board is full. The winner is the one who manages to have three of their marks in a straight line. If the board is full and there is no player with three of their marks in a straight line, then it's considered to be a draw.
 
 ## RULES
 There was no UI created for this game so the game is played in the commandline after running the command ``ruby bin/main.rb`` within the project directory.
