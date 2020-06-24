@@ -1,4 +1,4 @@
-<h1 align="center"> TIC TAC TOE <h1>
+<h1 align="center"> TIC TAC TOE </h1>
 
 
 <img src="img/2.png">
