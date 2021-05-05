@@ -1,7 +1,7 @@
 <h1 align="center"> TIC TAC TOE </h1>
 
 
-<img src="img/2.png">
+<div align="center"><img src="img/2.png"></div>
 
 This is an implementation of the Tic tac toe game in Ruby language. 
 
@@ -31,7 +31,7 @@ or if using Windows you can simply run
 `main.exe`
 
 
-<img width="400" src="img/1.png">
+<div align="center"> <img width="400" src="img/1.png"> </div>
 
 This is the starting screen of the game, here we have the header which includes the instructions for playing the game.
 
@@ -45,7 +45,7 @@ If a player inputs an invalid number, he'll receive a warning and will be prompt
 The game will display the winner or a draw incase the board is full and there is no winner.
 
 
-<img src="img/2.png">
+<div align="center"> <img src="img/2.png"> </div>
 
 ## AUTHORS
 Made by the Awesome Duo 
